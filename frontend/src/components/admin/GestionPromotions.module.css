@@ -1,0 +1,621 @@
+.container {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(248, 250, 252, 0.05);
+    backdrop-filter: blur(20px);
+    color: var(--text-primary);
+    border-radius: 20px;
+    border: 1px solid rgba(96, 165, 250, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.container h2 {
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.errorMessage {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--error-border);
+    font-weight: 500;
+}
+
+.successMessage {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--success-border);
+    font-weight: 500;
+}
+
+.formSection {
+    background: rgba(248, 250, 252, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(96, 165, 250, 0.1);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: end;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.formGroup label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.select {
+    padding: 10px 12px;
+    border: 2px solid var(--border-primary);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-shadow);
+}
+
+.previewBtn {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.previewBtn:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--primary-shadow-hover);
+}
+
+.previewBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.previewSection {
+    background: rgba(248, 250, 252, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(96, 165, 250, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.previewSection h3 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.promotionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.promotionCard {
+    border: 1px solid rgba(96, 165, 250, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(248, 250, 252, 0.05);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.promotionHeader {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.promotionHeader h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.etudiantCount {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.tableContainer {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(96, 165, 250, 0.1);
+    box-shadow: var(--shadow-large);
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+    table-layout: fixed;
+}
+
+.table thead {
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px 12px 0 0;
+}
+
+.table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-blue);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+}
+
+/* Largeurs fixes pour chaque colonne */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 15%; /* Matricule */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    width: 25%; /* Nom - réduit de 30% à 25% */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 18%; /* Mention */
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    width: 8%; /* Niveau */
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+    width: 19%; /* Parcours */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+    width: 15%; /* Actions - augmenté de 10% à 15% */
+}
+
+.table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    vertical-align: top;
+}
+
+.table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.05);
+    transform: scale(1.01);
+}
+
+.table tbody tr:hover td {
+    color: var(--accent-blue);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.actionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+/* Styles pour les tooltips */
+.table td[title] {
+    position: relative;
+    cursor: help;
+}
+
+.table td[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(74, 85, 104, 0.95);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.3);
+    border: none;
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: normal;
+    backdrop-filter: blur(10px);
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.checkboxLabel:hover {
+    color: var(--text-primary);
+    background: rgba(74, 85, 104, 0.05);
+}
+
+.checkboxLabel input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4a5568;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.checkboxText {
+    font-weight: 500;
+    user-select: none;
+}
+
+.promotionActions {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-primary);
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.testBtn {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.testBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.testBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.promoteBtn {
+    background: var(--success-gradient);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 250px;
+}
+
+.promoteBtn:hover:not(:disabled) {
+    background: var(--success-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--success-shadow-hover);
+}
+
+.promoteBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cancelBtn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.cancelBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+.cancelBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Thème sombre */
+.dark {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-primary: #5a6578;
+    --shadow-primary: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --shadow-secondary: 0 1px 5px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --primary-color: #3498db;
+    --primary-gradient: linear-gradient(135deg, #3498db, #2980b9);
+    --primary-hover: linear-gradient(135deg, #2980b9, #1f4e79);
+    --primary-shadow: rgba(52, 152, 219, 0.1);
+    --primary-shadow-hover: 0 4px 12px rgba(52, 152, 219, 0.3);
+    --success-gradient: linear-gradient(135deg, #27ae60, #229954);
+    --success-hover: linear-gradient(135deg, #229954, #1e8449);
+    --success-shadow-hover: 0 4px 12px rgba(39, 174, 96, 0.3);
+    --header-gradient: linear-gradient(135deg, #2c3e50, #34495e);
+    --error-bg: #2d1b1b;
+    --error-text: #ff6b6b;
+    --error-border: #4a1a1a;
+    --success-bg: #1b2d1b;
+    --success-text: #51cf66;
+    --success-border: #1a4a1a;
+}
+
+/* Thème clair */
+.light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #2c3e50;
+    --text-secondary: #6c757d;
+    --border-primary: #e5e7eb;
+    --shadow-primary: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-secondary: 0 1px 5px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 4px 15px rgba(0, 0, 0, 0.15);
+    --primary-color: #3498db;
+    --primary-gradient: linear-gradient(135deg, #3498db, #2980b9);
+    --primary-hover: linear-gradient(135deg, #2980b9, #1f4e79);
+    --primary-shadow: rgba(52, 152, 219, 0.1);
+    --primary-shadow-hover: 0 4px 12px rgba(52, 152, 219, 0.3);
+    --success-gradient: linear-gradient(135deg, #27ae60, #229954);
+    --success-hover: linear-gradient(135deg, #229954, #1e8449);
+    --success-shadow-hover: 0 4px 12px rgba(39, 174, 96, 0.3);
+    --header-gradient: linear-gradient(135deg, #2c3e50, #34495e);
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --error-border: #f5c6cb;
+    --success-bg: #d4edda;
+    --success-text: #155724;
+    --success-border: #c3e6cb;
+}
+
+/* Mode clair pour le container */
+.light .container {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(96, 165, 250, 0.1);
+}
+
+/* Mode clair pour les containers internes */
+.light .formSection,
+.light .previewSection,
+.light .promotionCard {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(96, 165, 250, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .formSection {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .formGroup {
+        min-width: auto;
+    }
+
+    .statistiques {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tableContainer {
+        padding: 10px;
+    }
+
+    .table {
+        font-size: 0.8rem;
+        min-width: 800px; /* Largeur minimale pour maintenir la lisibilité */
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 10px;
+    }
+
+    /* Ajuster les largeurs sur mobile */
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        width: 18%; /* Matricule - un peu plus large sur mobile */
+    }
+
+    .table th:nth-child(2),
+    .table td:nth-child(2) {
+        width: 30%; /* Nom - réduit de 35% à 30% sur mobile */
+    }
+
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        width: 15%; /* Mention */
+    }
+
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 7%; /* Niveau */
+    }
+
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        width: 15%; /* Parcours */
+    }
+
+    .table th:nth-child(6),
+    .table td:nth-child(6) {
+        width: 15%; /* Actions - augmenté de 10% à 15% sur mobile */
+    }
+
+    .actionsContainer {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .checkboxLabel {
+        font-size: 0.8rem;
+    }
+
+    .promotionHeader {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Mode clair */
+.light .container {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.light .formSection,
+.light .previewSection {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.light .tableContainer {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.light .table thead {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.light .table th {
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+}
+
+.light .table td {
+    color: #1e293b;
+    border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+}
+
+.light .table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.light .table tbody tr:hover td {
+    color: #3b82f6;
+}
+
+.light .promotionHeader {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    color: white;
+}
+
+.light .promotionCard {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+
+
+

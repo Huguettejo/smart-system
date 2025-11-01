@@ -1,0 +1,211 @@
+/* Styles de cartes adaptés au thème - UNIQUEMENT pour les dashboards */
+
+/* Cartes principales - seulement pour les dashboards */
+.dashboard .card,
+.dashboard .qcmCard,
+.dashboard .resultatCard,
+.dashboard .formCard,
+.dashboard .statsCard {
+    background: var(--bg-secondary, #ffffff) !important;
+    border: 1px solid var(--border-color, #e5e7eb) !important;
+    box-shadow: 0 4px 6px var(--shadow, rgba(0, 0, 0, 0.1)) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .card:hover,
+.dashboard .qcmCard:hover,
+.dashboard .resultatCard:hover,
+.dashboard .formCard:hover,
+.dashboard .statsCard:hover {
+    box-shadow: 0 8px 15px var(--shadow-hover, rgba(0, 0, 0, 0.15)) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Conteneurs principaux - seulement pour les dashboards */
+.dashboard .mainContent,
+.dashboard .content,
+.dashboard .container {
+    background: var(--bg-primary, #ffffff) !important;
+    color: var(--text-primary, #333333) !important;
+}
+
+/* Sections - seulement pour les dashboards */
+.dashboard .section,
+.dashboard .sectionHeader {
+    background: var(--bg-secondary, #f8fafc) !important;
+    border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+}
+
+/* Formulaires - seulement pour les dashboards */
+.dashboard .formGroup input,
+.dashboard .formGroup select,
+.dashboard .formGroup textarea {
+    background: var(--bg-tertiary, #f9fafb) !important;
+    border: 1px solid var(--border-color, #d1d5db) !important;
+    color: var(--text-primary, #374151) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .formGroup input:focus,
+.dashboard .formGroup select:focus,
+.dashboard .formGroup textarea:focus {
+    border-color: var(--accent-primary, #3b82f6) !important;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2) !important;
+    background: var(--bg-primary, #ffffff) !important;
+}
+
+.dashboard .formGroup input::placeholder,
+.dashboard .formGroup textarea::placeholder {
+    color: var(--text-muted, #9ca3af) !important;
+}
+
+/* Labels - seulement pour les dashboards */
+.dashboard .formGroup label,
+.dashboard .label {
+    color: var(--text-primary, #374151) !important;
+}
+
+/* Titres - seulement pour les dashboards */
+.dashboard .title,
+.dashboard .sectionTitle,
+.dashboard .cardTitle,
+.dashboard h1,
+.dashboard h2,
+.dashboard h3,
+.dashboard h4,
+.dashboard h5,
+.dashboard h6 {
+    color: var(--text-primary, #1f2937) !important;
+}
+
+/* Sous-titres - seulement pour les dashboards */
+.dashboard .subtitle,
+.dashboard .sectionSubtitle,
+.dashboard .cardSubtitle {
+    color: var(--text-secondary, #6b7280) !important;
+}
+
+/* Texte - seulement pour les dashboards */
+.dashboard .text,
+.dashboard .description,
+.dashboard .content {
+    color: var(--text-primary, #374151) !important;
+}
+
+/* Liens - seulement pour les dashboards */
+.dashboard .link,
+.dashboard a {
+    color: var(--accent-primary, #3b82f6) !important;
+    transition: color 0.3s ease !important;
+}
+
+.dashboard .link:hover,
+.dashboard a:hover {
+    color: var(--accent-secondary, #1d4ed8) !important;
+}
+
+/* Badges et statuts - seulement pour les dashboards */
+.dashboard .badge,
+.dashboard .status {
+    background: var(--bg-tertiary, #f3f4f6) !important;
+    color: var(--text-primary, #374151) !important;
+    border: 1px solid var(--border-color, #d1d5db) !important;
+}
+
+.dashboard .badge.success,
+.dashboard .status.success {
+    background: var(--success, #dcfce7) !important;
+    color: var(--success, #16a34a) !important;
+}
+
+.dashboard .badge.warning,
+.dashboard .status.warning {
+    background: var(--warning, #fef3c7) !important;
+    color: var(--warning, #d97706) !important;
+}
+
+.dashboard .badge.danger,
+.dashboard .status.danger {
+    background: var(--danger, #fed7d7) !important;
+    color: var(--danger, #dc2626) !important;
+}
+
+.dashboard .badge.info,
+.dashboard .status.info {
+    background: var(--info, #dbeafe) !important;
+    color: var(--info, #2563eb) !important;
+}
+
+/* Tables - seulement pour les dashboards */
+.dashboard .table,
+.dashboard .dataTable {
+    background: var(--bg-secondary, #ffffff) !important;
+    border: 1px solid var(--border-color, #e5e7eb) !important;
+}
+
+.dashboard .table th,
+.dashboard .dataTable th {
+    background: var(--bg-tertiary, #f9fafb) !important;
+    color: var(--text-primary, #374151) !important;
+    border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+}
+
+.dashboard .table td,
+.dashboard .dataTable td {
+    color: var(--text-primary, #374151) !important;
+    border-bottom: 1px solid var(--border-light, #f3f4f6) !important;
+}
+
+.dashboard .table tr:hover,
+.dashboard .dataTable tr:hover {
+    background: var(--bg-tertiary, #f9fafb) !important;
+}
+
+/* Modales - seulement pour les dashboards */
+.dashboard .modal,
+.dashboard .modalContent {
+    background: var(--bg-secondary, #ffffff) !important;
+    border: 1px solid var(--border-color, #e5e7eb) !important;
+    box-shadow: 0 20px 40px var(--shadow, rgba(0, 0, 0, 0.3)) !important;
+}
+
+.dashboard .modalHeader {
+    background: var(--bg-tertiary, #f9fafb) !important;
+    border-bottom: 1px solid var(--border-color, #e5e7eb) !important;
+}
+
+.dashboard .modalTitle {
+    color: var(--text-primary, #1f2937) !important;
+}
+
+/* Alertes - seulement pour les dashboards */
+.dashboard .alert,
+.dashboard .notification {
+    background: var(--bg-tertiary, #f9fafb) !important;
+    border: 1px solid var(--border-color, #e5e7eb) !important;
+    color: var(--text-primary, #374151) !important;
+}
+
+.dashboard .alert.success {
+    background: var(--success, #dcfce7) !important;
+    border-color: var(--success, #16a34a) !important;
+    color: var(--success, #16a34a) !important;
+}
+
+.dashboard .alert.warning {
+    background: var(--warning, #fef3c7) !important;
+    border-color: var(--warning, #d97706) !important;
+    color: var(--warning, #d97706) !important;
+}
+
+.dashboard .alert.danger {
+    background: var(--danger, #fed7d7) !important;
+    border-color: var(--danger, #dc2626) !important;
+    color: var(--danger, #dc2626) !important;
+}
+
+.dashboard .alert.info {
+    background: var(--info, #dbeafe) !important;
+    border-color: var(--info, #2563eb) !important;
+    color: var(--info, #2563eb) !important;
+}

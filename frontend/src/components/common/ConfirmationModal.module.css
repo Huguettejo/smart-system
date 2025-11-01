@@ -1,0 +1,554 @@
+/* Modal Overlay - Design Premium */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    backdrop-filter: blur(8px) saturate(150%) brightness(0.9);
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px) saturate(100%);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(8px) saturate(150%) brightness(0.9);
+    }
+}
+
+/* Modal Content - Glassmorphism Premium */
+.modalContent {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 30%,
+        rgba(248, 250, 252, 0.98) 70%,
+        rgba(241, 245, 249, 0.95) 100%
+    );
+    border-radius: 24px;
+    box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    max-width: 420px;
+    width: 90%;
+    max-height: 85vh;
+    overflow: hidden;
+    animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.modalContent::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(255, 255, 255, 0.08) 100%
+    );
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.modalContent::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        45deg,
+        rgba(99, 102, 241, 0.1) 0%,
+        rgba(168, 85, 247, 0.1) 25%,
+        rgba(236, 72, 153, 0.1) 50%,
+        rgba(251, 146, 60, 0.1) 75%,
+        rgba(34, 197, 94, 0.1) 100%
+    );
+    border-radius: 26px;
+    z-index: -1;
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.85) rotateX(15deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+    }
+}
+
+/* Dark mode - Premium Dark Theme */
+.dark .modalContent {
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.98) 0%,
+        rgba(15, 23, 42, 0.95) 30%,
+        rgba(2, 6, 23, 0.98) 70%,
+        rgba(0, 0, 0, 0.95) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dark .modalContent::before {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(255, 255, 255, 0.04) 100%
+    );
+}
+
+.dark .modalContent::after {
+    background: linear-gradient(
+        45deg,
+        rgba(99, 102, 241, 0.2) 0%,
+        rgba(168, 85, 247, 0.2) 25%,
+        rgba(236, 72, 153, 0.2) 50%,
+        rgba(251, 146, 60, 0.2) 75%,
+        rgba(34, 197, 94, 0.2) 100%
+    );
+}
+
+/* Modal Header - Premium Design */
+.modalHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 24px 20px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 2;
+}
+
+.dark .modalHeader {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(248, 250, 252, 0.8) 100%
+    );
+    flex-shrink: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.iconContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 18px;
+}
+
+.dark .iconContainer {
+    background: linear-gradient(
+        135deg,
+        rgba(51, 65, 85, 0.9) 0%,
+        rgba(30, 41, 59, 0.8) 100%
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+    font-size: 28px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    position: relative;
+    z-index: 2;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.iconGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(
+        circle,
+        rgba(99, 102, 241, 0.3) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: glowPulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes iconPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glowPulse {
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 4px;
+    opacity: 0.8;
+}
+
+.dark .subtitle {
+    color: #94a3b8;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+}
+
+.dark .title {
+    color: #f1f5f9;
+    background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Modal Body - Premium Typography */
+.modalBody {
+    padding: 20px 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.message {
+    font-size: 16px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.dark .message {
+    color: #94a3b8;
+}
+
+/* Modal Footer - Premium Buttons */
+.modalFooter {
+    display: flex;
+    gap: 12px;
+    padding: 20px 24px 24px 24px;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+/* Premium Button Styles */
+.cancelButton,
+.confirmButton {
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 120px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+}
+
+.cancelButton {
+    background: linear-gradient(
+        135deg,
+        rgba(241, 245, 249, 0.9) 0%,
+        rgba(226, 232, 240, 0.8) 100%
+    );
+    color: #64748b;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.cancelButton:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(226, 232, 240, 0.9) 0%,
+        rgba(203, 213, 225, 0.8) 100%
+    );
+    color: #475569;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.dark .cancelButton {
+    background: linear-gradient(
+        135deg,
+        rgba(51, 65, 85, 0.9) 0%,
+        rgba(71, 85, 105, 0.8) 100%
+    );
+    color: #94a3b8;
+    border: 1px solid rgba(71, 85, 105, 0.6);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark .cancelButton:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(71, 85, 105, 0.9) 0%,
+        rgba(100, 116, 139, 0.8) 100%
+    );
+    color: #cbd5e1;
+}
+
+/* Premium Confirm Button Variants */
+.confirmButtonDefault {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.confirmButtonDefault:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.confirmButtonDanger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.confirmButtonDanger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 12px 40px rgba(239, 68, 68, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.confirmButtonWarning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.confirmButtonWarning:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.confirmButtonSuccess {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.confirmButtonSuccess:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.confirmButtonInfo {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.confirmButtonInfo:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    box-shadow: 0 12px 40px rgba(6, 182, 212, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Disabled state */
+.cancelButton:disabled,
+.confirmButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Premium Spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .modalContent {
+        width: 95%;
+        margin: 20px;
+        border-radius: 20px;
+        max-width: 380px;
+    }
+
+    .modalHeader {
+        padding: 20px 20px 16px 20px;
+        gap: 14px;
+    }
+
+    .iconContainer {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .modalBody {
+        padding: 16px 20px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .modalFooter {
+        padding: 16px 20px 20px 20px;
+        flex-direction: column;
+    }
+
+    .cancelButton,
+    .confirmButton {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Hover effects for the entire modal */
+.modalContent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 48px 96px -20px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .modalContent:hover {
+    box-shadow: 0 48px 96px -20px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}

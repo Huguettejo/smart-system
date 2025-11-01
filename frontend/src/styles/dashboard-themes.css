@@ -1,0 +1,217 @@
+/* Styles de thème pour les dashboards */
+
+/* Dashboard enseignant - Thème clair */
+.light .dashboard {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.light .header {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px var(--shadow);
+}
+
+.light .sidebar {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+}
+
+.light .navItem {
+    color: var(--text-secondary);
+}
+
+.light .navItem:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.light .navItem.active {
+    background: var(--accent-light);
+    color: var(--accent-primary);
+    border-right: 3px solid var(--accent-primary);
+}
+
+.light .mainContent {
+    background: var(--bg-primary);
+}
+
+.light .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.light .card:hover {
+    box-shadow: 0 8px 15px var(--shadow-hover);
+}
+
+.light .btn {
+    background: linear-gradient(
+        135deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.light .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+}
+
+.light .input {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.light .input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+/* Dashboard enseignant - Thème sombre */
+.dark .dashboard {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.dark .header {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px var(--shadow);
+}
+
+.dark .sidebar {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+}
+
+.dark .navItem {
+    color: var(--text-secondary);
+}
+
+.dark .navItem:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.dark .navItem.active {
+    background: var(--accent-light);
+    color: var(--accent-primary);
+    border-right: 3px solid var(--accent-primary);
+}
+
+.dark .mainContent {
+    background: var(--bg-primary);
+}
+
+.dark .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.dark .card:hover {
+    box-shadow: 0 8px 15px var(--shadow-hover);
+}
+
+.dark .btn {
+    background: linear-gradient(
+        135deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.dark .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+}
+
+.dark .input {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.dark .input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+/* Styles communs pour les dashboards */
+.dashboard {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navItem {
+    transition: all 0.3s ease;
+}
+
+.mainContent {
+    transition: background-color 0.3s ease;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.btn {
+    transition: all 0.3s ease;
+}
+
+.input {
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

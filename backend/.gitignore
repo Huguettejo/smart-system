@@ -1,0 +1,10 @@
+# Fichiers d'environnement avec secrets
+.env
+*.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+instance/
+

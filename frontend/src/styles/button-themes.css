@@ -1,0 +1,197 @@
+/* Styles de boutons adaptés au thème - UNIQUEMENT pour les dashboards */
+
+/* Boutons de navigation - seulement pour les dashboards */
+.dashboard .navBtn {
+    background: transparent !important;
+    color: var(--text-secondary, #6b7280) !important;
+    border: 1px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .navBtn:hover {
+    background: var(--bg-tertiary, #f3f4f6) !important;
+    color: var(--text-primary, #374151) !important;
+    border-left-color: var(--border-color, #d1d5db) !important;
+}
+
+.dashboard .navBtn.active {
+    background: var(--bg-primary, #ffffff) !important;
+    color: var(--text-primary, #374151) !important;
+    border-left-color: var(--accent-primary, #3b82f6) !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1) !important;
+}
+
+/* Boutons d'action génériques - seulement pour les dashboards */
+.dashboard .btn,
+.dashboard .actionBtn,
+.dashboard .submitBtn,
+.dashboard .saveBtn,
+.dashboard .addBtn,
+.dashboard .exportBtn {
+    background: linear-gradient(
+        135deg,
+        var(--accent-primary, #3b82f6),
+        var(--accent-secondary, #1d4ed8)
+    ) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .btn:hover,
+.dashboard .actionBtn:hover,
+.dashboard .submitBtn:hover,
+.dashboard .saveBtn:hover,
+.dashboard .addBtn:hover,
+.dashboard .exportBtn:hover {
+    background: linear-gradient(
+        135deg,
+        var(--accent-secondary, #1d4ed8),
+        var(--accent-primary, #3b82f6)
+    ) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4) !important;
+}
+
+/* Boutons secondaires - seulement pour les dashboards */
+.dashboard .btn-secondary,
+.dashboard .cancelBtn {
+    background: var(--bg-tertiary, #f3f4f6) !important;
+    color: var(--text-primary, #374151) !important;
+    border: 1px solid var(--border-color, #d1d5db) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .btn-secondary:hover,
+.dashboard .cancelBtn:hover {
+    background: var(--bg-secondary, #e5e7eb) !important;
+    border-color: var(--border-light, #9ca3af) !important;
+}
+
+/* Boutons de danger - seulement pour les dashboards */
+.dashboard .btn-danger,
+.dashboard .deleteBtn {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3) !important;
+}
+
+.dashboard .btn-danger:hover,
+.dashboard .deleteBtn:hover {
+    background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Boutons de succès - seulement pour les dashboards */
+.dashboard .btn-success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.dashboard .btn-success:hover {
+    background: linear-gradient(135deg, #059669, #10b981) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Boutons d'avertissement - seulement pour les dashboards */
+.dashboard .btn-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
+}
+
+.dashboard .btn-warning:hover {
+    background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4) !important;
+}
+
+/* Boutons désactivés - seulement pour les dashboards */
+.dashboard .btn:disabled,
+.dashboard .actionBtn:disabled,
+.dashboard .submitBtn:disabled,
+.dashboard .saveBtn:disabled {
+    background: var(--text-muted, #9ca3af) !important;
+    color: white !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Boutons de toggle - seulement pour les dashboards */
+.dashboard .sidebarToggle,
+.dashboard .sidebarCollapse {
+    background: transparent !important;
+    color: var(--text-secondary, #6b7280) !important;
+    border: 1px solid var(--border-color, #d1d5db) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .sidebarToggle:hover,
+.dashboard .sidebarCollapse:hover {
+    background: var(--bg-tertiary, #f3f4f6) !important;
+    color: var(--text-primary, #374151) !important;
+    border-color: var(--border-light, #9ca3af) !important;
+}
+
+/* Boutons de déconnexion - seulement pour les dashboards */
+.dashboard .logoutBtn {
+    background: transparent !important;
+    color: var(--text-secondary, #6b7280) !important;
+    border: 1px solid var(--border-color, #d1d5db) !important;
+    transition: all 0.3s ease !important;
+}
+
+.dashboard .logoutBtn:hover {
+    background: var(--bg-tertiary, #f3f4f6) !important;
+    color: var(--text-primary, #374151) !important;
+}
+
+/* Boutons de publication - seulement pour les dashboards */
+.dashboard .publieBtn,
+.dashboard .depublieBtn {
+    background: linear-gradient(
+        135deg,
+        var(--accent-primary, #10b981),
+        var(--accent-secondary, #059669)
+    ) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.dashboard .depublieBtn {
+    background: linear-gradient(
+        135deg,
+        var(--accent-primary, #f59e0b),
+        var(--accent-secondary, #d97706)
+    ) !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
+}
+
+.dashboard .publieBtn:hover {
+    background: linear-gradient(
+        135deg,
+        var(--accent-secondary, #059669),
+        var(--accent-primary, #10b981)
+    ) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+.dashboard .depublieBtn:hover {
+    background: linear-gradient(
+        135deg,
+        var(--accent-secondary, #d97706),
+        var(--accent-primary, #f59e0b)
+    ) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4) !important;
+}

@@ -1,0 +1,363 @@
+.container {
+    display: flex;
+    width: 100vw;
+    background: var(--student-bg-image) center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 26, 46, 0.7);
+    pointer-events: none;
+}
+
+/* Section de gauche - Bienvenue */
+.welcomeSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.logo {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    gap: 4px;
+}
+
+.logoBar {
+    width: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+.logoBar:first-child {
+    height: 20px;
+}
+
+.logoBar:last-child {
+    height: 30px;
+}
+
+.welcomeContent {
+    text-align: left;
+    max-width: 500px;
+}
+
+.welcomeTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.imageContainer {
+    margin-top: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.studentImage {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.studentImage:hover {
+    transform: scale(1.05);
+}
+
+.separator {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+    margin: 0 0 30px 0;
+    border-radius: 2px;
+}
+
+.welcomeText {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.learnMoreBtn {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+.learnMoreBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.4);
+}
+
+/* Section de droite - Formulaire */
+.formSection {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.formCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.formTitle {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.formTitle::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+    border-radius: 1px;
+}
+
+.userTypeSelector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.typeBtn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.typeBtn.active {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 0;
+    text-align: left;
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.formGroup input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #ff6b35;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+.formGroup select option {
+    background: #1a1a2e;
+    color: white;
+}
+
+.submitBtn {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.4);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.switchMode {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.switchMode p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.switchBtn {
+    background: none;
+    border: none;
+    color: #ff6b35;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 8px;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.switchBtn:hover {
+    color: #f7931e;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .welcomeSection {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .welcomeTitle {
+        font-size: 2.5rem;
+    }
+
+    .formSection {
+        padding: 20px;
+        min-height: auto;
+        align-items: center;
+    }
+
+    .formCard {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcomeTitle {
+        font-size: 2rem;
+    }
+
+    .welcomeText {
+        font-size: 1rem;
+    }
+
+    .formCard {
+        padding: 25px 15px;
+    }
+
+    .formTitle {
+        font-size: 1.5rem;
+    }
+
+    .userTypeSelector {
+        flex-direction: column;
+    }
+}
+
+/* Message d'erreur - appliqué sur tous les écrans */
+.errorMessage {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    color: #c00;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(204, 0, 0, 0.1);
+}

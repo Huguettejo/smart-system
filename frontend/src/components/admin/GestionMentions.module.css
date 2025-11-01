@@ -1,0 +1,1077 @@
+/* ========================================
+   GESTION MENTIONS - STYLES CSS
+   ======================================== */
+
+/* === CONTAINER PRINCIPAL === */
+.gestionMentions {
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.gestionMentions.dark {
+    color: #e2e8f0;
+    background-color: #1a202c;
+}
+
+/* === HEADER SECTION === */
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.gestionMentions.dark .headerSection {
+    border-bottom-color: #4a5568;
+}
+
+.headerSection h2 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.gestionMentions.dark .headerSection h2 {
+    color: #f7fafc;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 16px;
+}
+
+/* === ONGLETS / TABS === */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0;
+}
+
+.gestionMentions.dark .tabs {
+    border-bottom-color: #4a5568;
+}
+
+.tab {
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #64748b;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    bottom: -2px;
+}
+
+.gestionMentions.dark .tab {
+    color: #94a3b8;
+}
+
+.tab:hover {
+    color: #3b82f6;
+    border-bottom-color: #93c5fd;
+}
+
+.gestionMentions.dark .tab:hover {
+    color: #60a5fa;
+    border-bottom-color: #3b82f6;
+}
+
+.tab.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+}
+
+.gestionMentions.dark .tab.active {
+    color: #60a5fa;
+    border-bottom-color: #60a5fa;
+}
+
+/* === SECTIONS HEADER === */
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.sectionHeader h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.gestionMentions.dark .sectionHeader h3 {
+    color: #f7fafc;
+}
+
+/* === BOUTONS === */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    letter-spacing: 0.025em;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btnPrimary {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btnPrimary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btnSecondary {
+    background: rgba(248, 250, 252, 0.1);
+    color: #f7fafc;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.btnSecondary:hover:not(:disabled) {
+    background: rgba(96, 165, 250, 0.2);
+    transform: translateY(-2px);
+}
+
+.btnSuccess {
+    background: linear-gradient(135deg, #ff9500, #ff6b35) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btnSuccess:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ff6b35, #e55a2b) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.4) !important;
+}
+
+.btnSuccess.addBtn::after {
+    content: "+";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8b5cf6;
+    font-weight: 700;
+    font-size: 18px;
+    text-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
+    z-index: 2;
+}
+
+.btnWarning {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btnWarning:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d97706, #b45309) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4) !important;
+}
+
+.btnDanger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btnDanger:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    transform: translateY(-2px);
+}
+
+.btnSm {
+    padding: 8px 16px;
+    font-size: 12px;
+}
+
+.addBtn {
+    /* Classe pour les boutons d'ajout avec le + automatique */
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* === ALERTS === */
+.alert {
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    border-left: 4px solid;
+}
+
+.alertError {
+    background-color: #fed7d7;
+    color: #c53030;
+    border-left-color: #e53e3e;
+}
+
+.alertSuccess {
+    background-color: #c6f6d5;
+    color: #2f855a;
+    border-left-color: #38a169;
+}
+
+.gestionMentions.dark .alertError {
+    background-color: #2d1b1b;
+    color: #fc8181;
+    border-left-color: #f56565;
+}
+
+.gestionMentions.dark .alertSuccess {
+    background-color: #1a2e1a;
+    color: #68d391;
+    border-left-color: #48bb78;
+}
+
+/* === MODAL === */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modalContent {
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 520px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.gestionMentions.dark .modalContent {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.gestionMentions.dark .modalHeader {
+    border-bottom-color: #4a5568;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.gestionMentions.dark .modalHeader h3 {
+    color: #f7fafc;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #718096;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+    background-color: #f7fafc;
+    color: #2d3748;
+}
+
+.gestionMentions.dark .closeBtn {
+    color: #a0aec0;
+}
+
+.gestionMentions.dark .closeBtn:hover {
+    background-color: #4a5568;
+    color: #f7fafc;
+}
+
+/* === FORMULAIRES === */
+form {
+    padding: 28px;
+}
+
+.formGroup {
+    margin-bottom: 24px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.gestionMentions.dark .formGroup label {
+    color: #e2e8f0;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    background: white;
+    color: #2d3748;
+    font-family: inherit;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.gestionMentions.dark .formGroup input,
+.gestionMentions.dark .formGroup select,
+.gestionMentions.dark .formGroup textarea {
+    background: #4a5568;
+    border-color: #718096;
+    color: #f7fafc;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.formGroup input[type="checkbox"] {
+    width: auto;
+    margin-right: 12px;
+    transform: scale(1.2);
+}
+
+.formActions {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.gestionMentions.dark .formActions {
+    border-top-color: #4a5568;
+}
+
+/* === SECTIONS === */
+.mentionsSection,
+.parcoursSection,
+.niveauxSection {
+    margin-bottom: 48px;
+}
+
+.mentionsSection h3,
+.parcoursSection h3,
+.niveauxSection h3 {
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+}
+
+.gestionMentions.dark .mentionsSection h3,
+.gestionMentions.dark .parcoursSection h3,
+.gestionMentions.dark .niveauxSection h3 {
+    color: #f7fafc;
+    border-bottom-color: #667eea;
+}
+
+/* === GRILLE DES MENTIONS === */
+.mentionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.mentionCard {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mentionCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gestionMentions.dark .mentionCard {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+.mentionCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cardHeader h4 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.gestionMentions.dark .cardHeader h4 {
+    color: #f7fafc;
+}
+
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.active {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.inactive {
+    background-color: #fed7d7;
+    color: #742a2a;
+}
+
+.gestionMentions.dark .active {
+    background-color: #1a4a1a;
+    color: #68d391;
+}
+
+.gestionMentions.dark .inactive {
+    background-color: #4a1a1a;
+    color: #fc8181;
+}
+
+/* Alias pour les niveaux */
+.actif {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.inactif {
+    background-color: #fed7d7;
+    color: #742a2a;
+}
+
+.gestionMentions.dark .actif {
+    background-color: #1a4a1a;
+    color: #68d391;
+}
+
+.gestionMentions.dark .inactif {
+    background-color: #4a1a1a;
+    color: #fc8181;
+}
+
+/* Code Badge pour les niveaux */
+.codeBadge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.gestionMentions.dark .codeBadge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Actions dans les tableaux */
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Status Toggle Switch */
+.statusToggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statusToggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: rgba(239, 68, 68, 0.3);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.statusToggle:hover {
+    background: rgba(239, 68, 68, 0.4);
+}
+
+.statusToggle.active {
+    background: rgba(34, 197, 94, 0.3);
+}
+
+.statusToggle.active:hover {
+    background: rgba(34, 197, 94, 0.4);
+}
+
+.statusToggleBall {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.statusToggle.active .statusToggleBall {
+    transform: translateX(20px);
+    background: #22c55e;
+}
+
+.statusToggle:not(.active) .statusToggleBall {
+    background: #ef4444;
+}
+
+.cardContent p {
+    margin: 10px 0;
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.gestionMentions.dark .cardContent p {
+    color: #a0aec0;
+}
+
+.cardActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* === TABLEAU DES PARCOURS === */
+.tableContainer {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(96, 165, 250, 0.1);
+    box-shadow: var(--shadow-large);
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+    table-layout: fixed;
+}
+
+.table thead {
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px 12px 0 0;
+}
+
+.table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-blue);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+}
+
+.table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+    color: var(--white);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    vertical-align: top;
+}
+
+.table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.05);
+    transform: scale(1.01);
+}
+
+.table tbody tr:hover td {
+    color: var(--accent-blue);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* === LOADING === */
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: #718096;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.gestionMentions.dark .loading {
+    color: #a0aec0;
+}
+
+/* === MODE CLAIR === */
+.gestionMentions:not(.dark) {
+    color: #1e293b;
+    background-color: #f8fafc;
+}
+
+.gestionMentions:not(.dark) .headerSection {
+    border-bottom-color: #e2e8f0;
+}
+
+.gestionMentions:not(.dark) .headerSection h2 {
+    color: #1e293b;
+}
+
+.gestionMentions:not(.dark) .mentionsSection h3,
+.gestionMentions:not(.dark) .parcoursSection h3,
+.gestionMentions:not(.dark) .niveauxSection h3 {
+    color: #1e293b;
+    border-bottom-color: #3b82f6;
+}
+
+.gestionMentions:not(.dark) .mentionCard {
+    background: white;
+    border-color: #e2e8f0;
+}
+
+.gestionMentions:not(.dark) .cardHeader h4 {
+    color: #1e293b;
+}
+
+.gestionMentions:not(.dark) .cardContent p {
+    color: #64748b;
+}
+
+.gestionMentions:not(.dark) .tableContainer {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.gestionMentions:not(.dark) .table thead {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.gestionMentions:not(.dark) .table th {
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+}
+
+.gestionMentions:not(.dark) .table td {
+    color: #1e293b;
+    border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+}
+
+.gestionMentions:not(.dark) .table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.gestionMentions:not(.dark) .table tbody tr:hover td {
+    color: #3b82f6;
+}
+
+.gestionMentions:not(.dark) .modalContent {
+    background: white;
+    color: #1e293b;
+}
+
+.gestionMentions:not(.dark) .modalHeader {
+    border-bottom-color: #e2e8f0;
+}
+
+.gestionMentions:not(.dark) .modalHeader h3 {
+    color: #1e293b;
+}
+
+.gestionMentions:not(.dark) .closeBtn {
+    color: #64748b;
+}
+
+.gestionMentions:not(.dark) .closeBtn:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.gestionMentions:not(.dark) .formGroup label {
+    color: #374151;
+}
+
+.gestionMentions:not(.dark) .formGroup input,
+.gestionMentions:not(.dark) .formGroup select,
+.gestionMentions:not(.dark) .formGroup textarea {
+    background: white;
+    border-color: #d1d5db;
+    color: #1e293b;
+}
+
+.gestionMentions:not(.dark) .formGroup input:focus,
+.gestionMentions:not(.dark) .formGroup select:focus,
+.gestionMentions:not(.dark) .formGroup textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.gestionMentions:not(.dark) .formActions {
+    border-top-color: #e2e8f0;
+}
+
+.gestionMentions:not(.dark) .btnPrimary {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+    color: white;
+}
+
+.gestionMentions:not(.dark) .btnSecondary {
+    background: rgba(248, 250, 252, 0.9);
+    color: #374151;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.gestionMentions:not(.dark) .btnSecondary:hover {
+    background: rgba(248, 250, 252, 1);
+    color: #1f2937;
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.gestionMentions:not(.dark) .btnSuccess {
+    background: linear-gradient(135deg, #ff9500, #ff6b35) !important;
+    color: white !important;
+}
+
+.gestionMentions:not(.dark) .btnWarning {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: white !important;
+}
+
+.gestionMentions:not(.dark) .btnWarning:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d97706, #b45309) !important;
+}
+
+.gestionMentions:not(.dark) .btnDanger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.gestionMentions:not(.dark) .btnDanger:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #b91c1c;
+}
+
+.gestionMentions:not(.dark) .alertError {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border-left-color: #ef4444;
+}
+
+.gestionMentions:not(.dark) .alertSuccess {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border-left-color: #22c55e;
+}
+
+.gestionMentions:not(.dark) .loading {
+    color: #64748b;
+}
+
+/* Mode clair - Status Toggle */
+.gestionMentions:not(.dark) .statusToggle {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.gestionMentions:not(.dark) .statusToggle:hover {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+.gestionMentions:not(.dark) .statusToggle.active {
+    background: rgba(34, 197, 94, 0.2);
+}
+
+.gestionMentions:not(.dark) .statusToggle.active:hover {
+    background: rgba(34, 197, 94, 0.3);
+}
+
+.gestionMentions:not(.dark) .statusToggleBall {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gestionMentions:not(.dark) .statusToggle.active .statusToggleBall {
+    background: #22c55e;
+}
+
+.gestionMentions:not(.dark) .statusToggle:not(.active) .statusToggleBall {
+    background: #ef4444;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .gestionMentions {
+        padding: 16px;
+    }
+
+    .headerSection {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .headerSection h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .actionButtons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Masquer les scrollbars des tables */
+    .tableContainer {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+
+    .tableContainer::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .mentionsGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .tableContainer {
+        overflow-x: auto;
+    }
+
+    .modalContent {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .formActions {
+        flex-direction: column;
+    }
+
+    .cardActions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .gestionMentions {
+        padding: 12px;
+    }
+
+    .headerSection h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .mentionCard {
+        padding: 20px;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px 16px;
+    }
+}
+
+/* === CHECKBOX GROUP === */
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f8fafc;
+}
+
+.gestionMentions.dark .checkboxGroup {
+    border-color: #4a5568;
+    background-color: #2d3748;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.checkboxLabel:hover {
+    background-color: #e2e8f0;
+}
+
+.gestionMentions.dark .checkboxLabel:hover {
+    background-color: #4a5568;
+}
+
+.checkboxLabel input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #3182ce;
+}
+
+.checkboxLabel span {
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.gestionMentions.dark .checkboxLabel span {
+    color: #a0aec0;
+}
