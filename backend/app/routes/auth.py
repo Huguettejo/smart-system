@@ -3,6 +3,7 @@ from ..models.user import Utilisateur, Etudiant, Enseignant, Admin, db
 from ..models.niveau_parcours import Niveau, Parcours, Mention
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from ..extensions import bcrypt
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -119,17 +120,22 @@ def register():
 def login():
     data = request.get_json()
 
-    if not data.get("email") or not data.get("motDePasse"):
-        return jsonify({"error": "Email et mot de passe requis"}), 400
+    # Accepter email ou username
+    identifier = data.get("email") or data.get("username")
+    if not identifier or not data.get("motDePasse"):
+        return jsonify({"error": "Email/username et mot de passe requis"}), 400
 
-    user = Utilisateur.query.filter_by(email=data["email"]).first()
+    # Chercher l'utilisateur par email ou username
+    user = Utilisateur.query.filter(
+        (Utilisateur.email == identifier) | (Utilisateur.username == identifier)
+    ).first()
 
-    # Vérification temporaire avec mot de passe simple
+    # Vérifier si l'utilisateur existe
     if not user:
         return jsonify({"error": "Identifiants invalides"}), 401
     
-    # Vérification simple du mot de passe (temporaire)
-    if data["motDePasse"] != "123456":
+    # Vérifier le mot de passe avec bcrypt
+    if not bcrypt.check_password_hash(user.password, data["motDePasse"]):
         return jsonify({"error": "Identifiants invalides"}), 401
 
     # Vérifier si l'utilisateur est actif (sauf pour les admins)

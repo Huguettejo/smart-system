@@ -16,7 +16,12 @@ class Config:
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
     # Base de données PostgreSQL
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    # Convertir postgresql:// en postgresql+psycopg:// pour utiliser psycopg (v3) au lieu de psycopg2
+    _database_url = os.getenv("DATABASE_URL", "")
+    if _database_url and _database_url.startswith("postgresql://") and "+psycopg" not in _database_url:
+        # Remplacer postgresql:// par postgresql+psycopg:// pour forcer l'utilisation de psycopg3
+        _database_url = _database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    SQLALCHEMY_DATABASE_URI = _database_url
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # (optionnel) configuration JWT

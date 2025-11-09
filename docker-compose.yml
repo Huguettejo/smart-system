@@ -1,0 +1,67 @@
+services:
+  # Service PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: smart-system-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-systeme_intelligent}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - smart-system-network
+
+  # Service Backend Flask
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: smart-system-backend
+    environment:
+      # Configuration de la base de données
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-systeme_intelligent}
+
+      # Clés secrètes
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production-secret-key-min-32-chars}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-change-me-in-production-jwt-secret-key-min-32-chars}
+
+      # Configuration JWT
+      JWT_ACCESS_TOKEN_EXPIRES: ${JWT_ACCESS_TOKEN_EXPIRES:-10800}
+
+      # Hugging Face (optionnel)
+      HF_API_TOKEN: ${HF_API_TOKEN:-}
+
+      # Variables pour le cache Hugging Face (optionnel)
+      HF_HOME: ${HF_HOME:-/app/.cache/huggingface}
+      TRANSFORMERS_CACHE: ${TRANSFORMERS_CACHE:-/app/.cache/transformers}
+    ports:
+      - "${BACKEND_PORT:-5000}:5000"
+    volumes:
+      # Montage du code en développement (optionnel - commenter en production)
+      - ./backend:/app
+      # Volume pour le cache Hugging Face
+      - huggingface_cache:/app/.cache
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - smart-system-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  huggingface_cache:
+    driver: local
+
+networks:
+  smart-system-network:
+    driver: bridge

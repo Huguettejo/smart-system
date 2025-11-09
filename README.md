@@ -173,23 +173,63 @@ GRANT ALL PRIVILEGES ON DATABASE systeme_intelligent TO systeme_user;
 
 ### Démarrage des services
 
-#### 1. Démarrer le backend
+#### Option 1 : Démarrage automatique (Recommandé) 🚀
 
+**Pour Linux/Mac/Git Bash (Windows) :**
 ```bash
+# Rendre les scripts exécutables (première fois seulement)
+chmod +x scripts/*.sh
+
+# Démarrer tous les services en une commande
+./scripts/dev-start.sh
+```
+
+**Pour Windows (CMD) :**
+```cmd
+scripts\dev-start.bat
+```
+
+Ce script :
+- ✅ Vérifie tous les prérequis
+- ✅ Lance le backend et le frontend en parallèle
+- ✅ Active le hot-reload automatique
+- ✅ Configure le proxy API automatiquement
+
+#### Option 2 : Démarrage manuel
+
+**1. Démarrer la base de données (si vous utilisez Docker)**
+```bash
+docker-compose up -d db
+```
+
+**2. Démarrer le backend**
+```bash
+# Linux/Mac/Git Bash
+./scripts/start-backend.sh
+
+# Ou manuellement
 cd backend
+source venv/bin/activate  # ou venv\Scripts\activate sur Windows
 python run.py
 ```
 
-Le serveur sera accessible sur `http://localhost:5000`
+Le serveur sera accessible sur `http://localhost:5000` avec :
+- 🔄 Auto-reload activé (redémarre automatiquement à chaque modification)
+- 🐛 Mode debug activé
 
-#### 2. Démarrer le frontend
-
+**3. Démarrer le frontend**
 ```bash
+# Linux/Mac/Git Bash
+./scripts/start-frontend.sh
+
+# Ou manuellement
 cd frontend
 npm run dev
 ```
 
-L'application sera accessible sur `http://localhost:5173`
+L'application sera accessible sur `http://localhost:5173` avec :
+- 🔥 Hot-reload activé (recharge automatiquement à chaque modification)
+- 🔀 Proxy API configuré (redirige `/api` et `/auth` vers le backend)
 
 ### Première utilisation
 
@@ -274,7 +314,67 @@ SystemeIntelligent/
 
 ## 🐛 Dépannage
 
+### Correction automatique rapide
+
+Si vous rencontrez des erreurs de dépendances manquantes ou de configuration :
+
+```bash
+# Script de correction automatique
+./scripts/fix-backend.sh
+```
+
+Ce script :
+- ✅ Vérifie/crée l'environnement virtuel
+- ✅ Installe toutes les dépendances Python
+- ✅ Crée le fichier .env si nécessaire
+- ✅ Teste que tout fonctionne
+
 ### Problèmes courants
+
+#### Erreur "ModuleNotFoundError: No module named 'psycopg2'"
+
+**Problème :** SQLAlchemy essaie d'utiliser `psycopg2` mais vous avez installé `psycopg` (v3).
+
+**Solution :** Le fichier `config.py` convertit automatiquement `postgresql://` en `postgresql+psycopg://` pour utiliser psycopg3.
+
+Si le problème persiste :
+```bash
+./scripts/fix-psycopg-dialect.sh
+```
+
+#### Erreur "Microsoft Visual C++ 14.0 or greater is required" (Python 3.13)
+
+**Problème :** `psycopg2-binary` n'a pas de wheels précompilés pour Python 3.13.
+
+**Solution :** Le projet utilise maintenant `psycopg` (version 3) qui est compatible Python 3.13.
+
+```bash
+# Le script fix-backend.sh gère cela automatiquement
+./scripts/fix-backend.sh
+
+# Ou manuellement
+cd backend
+source venv/Scripts/activate
+pip install "psycopg[binary]>=3.1.0"
+pip install -r requirements.txt
+```
+
+Voir `scripts/README-PYTHON313.md` pour plus de détails.
+
+#### Erreur "ModuleNotFoundError: No module named 'flask_sqlalchemy'"
+
+**Solution rapide :**
+```bash
+./scripts/fix-backend.sh
+```
+
+**Solution manuelle :**
+```bash
+cd backend
+source venv/Scripts/activate  # Windows Git Bash
+# ou: source venv/bin/activate  # Linux/Mac
+pip install -r requirements.txt
+```
 
 #### Erreur de connexion à la base de données
 

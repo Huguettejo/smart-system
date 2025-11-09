@@ -48,6 +48,20 @@ def upgrade():
         batch_op.drop_column('parcours')
         batch_op.drop_column('niveau')
 
+    # Vérifier si la colonne qcm_id existe avant de la modifier
+    # Si elle n'existe pas, l'ajouter d'abord
+    conn = op.get_bind()
+    inspector = sa.inspect(conn)
+    columns = [col['name'] for col in inspector.get_columns('resultats')]
+    
+    if 'qcm_id' not in columns:
+        # Ajouter la colonne qcm_id si elle n'existe pas
+        with op.batch_alter_table('resultats', schema=None) as batch_op:
+            batch_op.add_column(sa.Column('qcm_id', sa.Integer(), nullable=True))
+        # Créer la clé étrangère (en dehors de batch_alter_table)
+        op.create_foreign_key('resultats_qcm_id_fkey', 'resultats', 'qcms', ['qcm_id'], ['id'])
+    
+    # Modifier la colonne pour la rendre NOT NULL (si elle existe)
     with op.batch_alter_table('resultats', schema=None) as batch_op:
         batch_op.alter_column('qcm_id',
                existing_type=sa.INTEGER(),
